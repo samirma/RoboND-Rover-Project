@@ -1,7 +1,7 @@
 ## Project: Search and Sample Return
 [//]: # (Image References)
-[image1]: ./output/warped_example.jpg
-[image2]: ./output/warped_threshed.jpg
+[image1]: /output/warped_example.jpg
+[image2]: /output/warped_threshed.jpg
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
