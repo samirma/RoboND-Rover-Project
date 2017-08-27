@@ -21,10 +21,12 @@ Here is an example of how to include an image in your writeup.
 
 #### 1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
 
-First I did a perspect_transform
+First I did a perspect_transform using a perspect_transform method
+
 ![alt text][image1]
 
 Then next I applied a not evil color threshold and then applied a map in order to find a navagable pixels
+
 ![alt text][image2]
 
 And then it was possible to find out the rover coordenates using rover_coords method and then convert it to world coordenates with pix_to_world method
