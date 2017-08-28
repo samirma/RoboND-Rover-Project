@@ -61,7 +61,7 @@ It was used pretty much the same tecniches used in notebook
 
 ![alt text][image3]
 
-##Future
+## Future
 It was noticed that some times the rover stuck in some rocks, it can be solved with some improvements on the decision_step.
 A good approach would find a way to make the rover go to unmapped areas whenever its find itself in an alley
 For sure a rock picking should be on the to-do list for the future.
