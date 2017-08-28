@@ -1,7 +1,8 @@
 ## Project: Search and Sample Return
 [//]: # (Image References)
 [image1]: warped_example.jpg
-[image2]: ./warped_threshed.jpg
+[image2]: warped_threshed.jpg
+[image3]: autonomous_mode.png
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -17,33 +18,50 @@ You're reading it!
 #### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data you have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.
 Here is an example of how to include an image in your writeup.
 
-
-
 #### 1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
 
-First I did a perspect_transform using a perspect_transform method
+First it was used a perspect transform in a image to remove a rover perspect point of view
 
 ![alt text][image1]
 
-Then next I applied a not evil color threshold and then applied a map in order to find a navagable pixels
+It was applied a not evil color threshold and then applied a map in order to find a navagable pixels
 
 ![alt text][image2]
 
-And then it was possible to find out the rover coordenates using rover_coords method and then convert it to world coordenates with pix_to_world method
+And then it was possible to find out the rover coordinates using rover_coords method and then convert it to world coordinates with pix_to_world method.
+
+Now with this rover and world coordinates, it is possible to populate the map
+
+Same approach was used to find whatever is a rock or not in the image and get its coordinate for a navigation and mapping proposes
 
 ### Autonomous Navigation and Mapping
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
 
+For the perception_step() it was used these main methods with its descriptions:
+
+- perspect_transform: It is used to transform the image from the robot perspective to a ground plane
+
+- color_thresh: Return a navigable ground map based on its color
+
+- rover_coords: It is needed in order to convert all image pixels to a rover coordinates
+
+- pix_to_world: It used to convert rover coordinates into a world coordinates for a world mapping proposes
+
+- to_polar_coords: Convert every coordinate into an angle and distance for a decision_step method
+
+- find_rocks: Return a rock map based on its yellow color a process very similar to the color_thresh method
 
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 
-**Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
+It was used a 1280x800 resolution with Fantastic quality in windows mode
+Most of the time it got 29 FPS
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
-
+It was used pretty much the same tecniches used in notebook 
 
 ![alt text][image3]
 
-
+##Future
+It was noticed that some times the rover stuck in some rocks, it can be solved with some improvements on the decision_step.
+A good approach would find a way to make the rover go to unmapped areas whenever its find itself in an alley
+For sure a rock picking should be on the to-do list for the future.
