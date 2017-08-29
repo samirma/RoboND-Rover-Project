@@ -6,17 +6,16 @@
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
-
----
-### Writeup / README
-
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  
-
-You're reading it!
-
 ### Notebook Analysis
 #### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data you have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.
-Here is an example of how to include an image in your writeup.
+
+In order to find the rocks, it was added a new method called find_rocks.
+Below how this method works:
+find_rocks receives two parameters an image which we are going to work on and an RGB level. 
+First, it uses the given level param to filter the image in order to select all image's pixels that match with that level, then a map with its pixels is created and returned by the method.
+
+Currently, the RGB level used to filter only the yellow rocks is (110, 110, 50)
+
 
 #### 1. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
 
